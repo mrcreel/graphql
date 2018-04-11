@@ -25,6 +25,7 @@ module.exports = new GraphQLSchema({
     name: 'Query',
     description: 'Query',
     fields: () => ({
+
       AcademicDepartment: {
         type: AcademicDepartmentType,
         args: {
@@ -35,6 +36,7 @@ module.exports = new GraphQLSchema({
       )
       .then(res => res.json())
       },
+      
     })
   })
 })
