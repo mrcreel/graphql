@@ -1,6 +1,6 @@
 {
   "name": "graphql-search",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Search module for graphQL",
   "main": "serve.js",
   "scripts": {
@@ -21,11 +21,10 @@
     "apollo-fetch": "^0.7.0",
     "apollo-link": "^1.2.1",
     "apollo-link-http": "^1.5.3",
-    "chalk": "^2.3.2",
-    "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.2",
+    "graphql-yoga": "^1.8.4",
     "node-fetch": "^2.1.2",
     "react": "^16.3.1",
     "react-apollo": "^2.1.3",
