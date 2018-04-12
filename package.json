@@ -4,10 +4,7 @@
   "description": "Search module for graphQL",
   "main": "serve.js",
   "scripts": {
-    "start": "NODE_ENV=production node serve.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "lint-staged && npm run test",
-    "cm": "git-cz"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
