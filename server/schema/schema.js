@@ -43,7 +43,7 @@ const FacultyMemberType = new GraphQLObjectType({
     },
     academicDepartment:{
       type: AcademicDepartmentType,
-      resolve: (root, args) => {academicDepartment.id === root.academicDepartmentId},
+      resolve: (root, args) => {AcademicDepartment.id === root.academicDepartmentId},
     },
   })
 })

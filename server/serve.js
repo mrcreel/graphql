@@ -14,3 +14,7 @@ app.use('/graphql', GraphqlHTTP(() => ({
 app.listen(APP_PORT)
 
 console.log(`Started on http://localhost:${APP_PORT}/`)
+
+/*
+killall -9 node
+*/
