@@ -1,0 +1,28 @@
+{
+  "name": "graphql-search",
+  "version": "0.0.1",
+  "description": "Search module for graphQL",
+  "main": "serve.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrcreel/graphql.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrcreel/graphql/issues"
+  },
+  "homepage": "https://github.com/mrcreel/graphql#readme",
+  "dependencies": {
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.2",
+    "node-fetch": "^2.1.2",
+    "nodemon": "^1.17.3"
+  }
+}
