@@ -84,12 +84,8 @@ const QueryType = new GraphQLObjectType({
   }),
 })
 
-
-
 module.exports = new GraphQLSchema(
   {
   query: QueryType,
   }
 )
-
-///test
