@@ -11,41 +11,8 @@ const fetch = require('node-fetch')
 const BASE_URL = `http://104.236.41.59/wp-json/wp/v2`
 
 function fetchResponseByURL(relativeURL) {
-  console.log(`fetchResponseByURL: ${BASE_URL}${relativeURL}`)
-  return fetch(`${BASE_URL}${relativeURL}/?per_page=100`).then(res => res.json());
+  return `${BASE_URL}${relativeURL}/?per_page=100`
 }
-/*
-function fetchFacultyDepartments() {
-  console.log(`fetchFacultyDepartments: ${BASE_URL}${relativeURL}`)
-  return fetchResponseByURL('/faculty-department/').then(json => json.facultyDepartments);
-}
-
-function fetchFacultyDepartmentByURL(relativeURL) {
-  console.log(`fetchFacultyDepartmentByURL: ${BASE_URL}${relativeURL}`)
-  return fetchResponseByURL(relativeURL).then(json => json.facultyDepartment);
-}
- */
-const QueryType = new GraphQLObjectType({
-  name: `Query`,
-  description: `Base Query`,
-  fields: () => ({
-    allAcademicDepartments: {
-      type: new GraphQLList(AcademicDepartmentType),
-      resolve: (root, args) =>fetch(
-        `${BASE_URL}/faculty-department/?per_page=100`)
-        .then(res => res.json()),
-    },
-    academicDepartment: {
-      type: AcademicDepartmentType,
-      args: {
-        id: { type: GraphQLInt },
-      },
-      resolve: (root, args) =>fetch(
-        `${BASE_URL}/faculty-department/${args.id}/?per_page=100`)
-        .then(res => res.json()),
-    },
-  }),
-})
 
 const AcademicDepartmentType = new GraphQLObjectType({
   name: 'AcademicDepartment',
@@ -56,6 +23,32 @@ const AcademicDepartmentType = new GraphQLObjectType({
     slug: { type: GraphQLString, },
   })
 })
+
+const QueryType = new GraphQLObjectType({
+  name: `Query`,
+  description: `Base Query`,
+  fields: () => ({
+    allAcademicDepartments: {
+      type: new GraphQLList(AcademicDepartmentType),
+      resolve: (root, args) =>fetch(
+        fetchFacultyDepartments()
+      )
+      .then(res => res.json()),
+    },
+    academicDepartment: {
+      type: AcademicDepartmentType,
+      args: {
+        id: { type: GraphQLInt },
+      },
+      resolve: (root, args) =>fetch(
+        fetchResponseByURL(`/faculty-department/${args.id}/`)
+      )
+      .then(res => res.json()),
+    },
+  }),
+})
+
+
 
 module.exports = new GraphQLSchema(
   {
