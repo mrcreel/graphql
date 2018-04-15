@@ -1,0 +1,19 @@
+{
+  "name": "fus-search",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "commitizen": "^2.9.6",
+    "graphql-yoga": "^1.8.5",
+    "nodemon": "^1.17.3"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
