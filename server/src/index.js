@@ -8,36 +8,29 @@ const typeDefs =
   type Query {
     academicDepartment (id: ID!): AcademicDepartment
     academicDepartments: [AcademicDepartment!]!
-    facultyMember(id: ID!): FacultyMember
-    facultyMembers: [FacultyMember!]!
   }
 
   type AcademicDepartment {
     id: ID!
     name: String!
     slug: String!
-    facultyMembers: [FacultyMember!]!
-  }
-
-  type FacultyMember {
-    id: ID!
-    name: String!
-    slug: String!
-    academicDepartment: AcademicDepartment!
   }
 
   `
-
-/*
-
-facultyMembers: [FacultyMember!]!
-
-
-  */
-
 const resolvers = {
   Query: {
-
+    academicDepartment: (parent, args) => {
+      return (
+        fetch(`${BASE_URL}/faculty-department/${args.id}?per_page=100`)
+      )
+      .then(res => res.json())
+    },
+    academicDepartments: () => {
+      return (
+        fetch(`${BASE_URL}/faculty-department/?per_page=100`)
+      )
+      .then(res => res.json())
+    },
   },
 }
 
@@ -46,4 +39,5 @@ const server = new GraphQLServer({
   typeDefs,
   resolvers,
 })
+
 server.start(() => console.log(`Server is running on http://localhost:${APP_PORT}`))
