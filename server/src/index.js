@@ -35,7 +35,7 @@ const typeDefs =
   }
 `
 
-const BASE_URL = `http://104.236.41.59/wp-json/wp/v2`
+const BASE_URL = `https://wp.franciscan.university/wp-json/wp/v2`
 
 const resolvers = {
   Query: {
@@ -67,9 +67,14 @@ const resolvers = {
       .then(res => res.json())
     },
 
+/*
     departmentFacultyMember: (root, args) => {
-
+      return (
+        fetch(`${BASE_URL}/faculty/?per_page=100`)
+      )
+      .then(res => res.json())
     },
+*/
 
   },
 
