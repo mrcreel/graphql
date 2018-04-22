@@ -9,7 +9,7 @@ const {
 
 const fetch = require('node-fetch')
 
-const BASE_URL = `http://104.236.41.59/wp-json/wp/v2`
+const BASE_URL = `https://wp.franciscan.university/wp-json/wp/v2/`
 
 function fetchResponseByURL(relativeURL) {
   console.log(`${BASE_URL}${relativeURL}/?per_page=100`)
@@ -43,7 +43,7 @@ const FacultyMemberType = new GraphQLObjectType({
     },
     academicDepartment:{
       type: AcademicDepartmentType,
-      
+
     },
   })
 })
